@@ -3,677 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bolos Mara â€” Feitos com Amor</title>
+  <title>Bolos Mara - Feitos com Amor</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --rose: #d4848c;
-      --rose-dark: #b85d66;
-      --cream: #fdf6f0;
-      --chocolate: #5c3a2e;
-      --vanilla: #faf3e8;
-      --text: #3d2c2c;
-      --text-light: #7a6a6a;
-      --gold: #c8963e;
+      --rose: #d4848c; --rose-dark: #b85d66; --cream: #fdf6f0;
+      --chocolate: #5c3a2e; --vanilla: #faf3e8; --text: #3d2c2c;
+      --text-light: #7a6a6a; --gold: #c8963e;
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.7;
-    }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(253, 246, 240, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212, 132, 140, 0.2);
-      padding: 0 2rem;
-      transition: box-shadow 0.3s;
-    }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(92, 58, 46, 0.08); }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--rose-dark);
-      letter-spacing: -0.5px;
-    }
-    .logo span { color: var(--chocolate); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--rose); }
-    .btn-order {
-      background: var(--rose);
-      color: #fff;
-      border: none;
-      padding: 0.6rem 1.6rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      font-family: 'Inter', sans-serif;
-    }
-    .btn-order:hover { background: var(--rose-dark); transform: translateY(-1px); }
-
-    .hero {
-      margin-top: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 92vh;
-      background: linear-gradient(135deg, #fdf6f0 0%, #f8e8e0 40%, #fbe5d6 100%);
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    .hero-content { max-width: 700px; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(212, 132, 140, 0.15);
-      color: var(--rose-dark);
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.5px;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: var(--chocolate);
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-    .hero h1 em { color: var(--rose-dark); font-style: normal; }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      margin-bottom: 2.5rem;
-      max-width: 500px;
-      margin-left: auto; margin-right: auto;
-    }
-    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--rose);
-      color: #fff;
-      border: none;
-      padding: 0.9rem 2.4rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212, 132, 140, 0.35); }
-    .btn-outline {
-      background: transparent;
-      color: var(--chocolate);
-      border: 2px solid var(--chocolate);
-      padding: 0.85rem 2.4rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-outline:hover { background: var(--chocolate); color: #fff; }
-
-    section { padding: 6rem 2rem; }
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .section-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      color: var(--chocolate);
-      margin-bottom: 0.75rem;
-    }
-    .section-header p { color: var(--text-light); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-
-    .products { background: #fff; }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .product-card {
-      background: var(--vanilla);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(92, 58, 46, 0.1); }
-    .product-img {
-      height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .product-img svg { width: 120px; height: 120px; opacity: 0.9; }
-    .product-img.chocolate { background: linear-gradient(135deg, #3d1f0e, #6b3a22); }
-    .product-img.red-velvet { background: linear-gradient(135deg, #8b1a2b, #c0392b); }
-    .product-img.cenoura { background: linear-gradient(135deg, #e8943a, #d4842c); }
-    .product-img.brigadeiro { background: linear-gradient(135deg, #5c2e1a, #3d1a0e); }
-    .product-img.morango { background: linear-gradient(135deg, #f5d6d6, #e8b4b8); }
-    .product-img.limao { background: linear-gradient(135deg, #f7f3c6, #e8d48b); }
-
-    .product-body { padding: 1.5rem; }
-    .product-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 0.3rem;
-      color: var(--chocolate);
-    }
-    .product-body .desc { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; }
-    .product-body .price {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--rose-dark);
-    }
-    .product-body .price small { font-weight: 400; font-size: 0.8rem; color: var(--text-light); }
-
-    .about { background: var(--cream); }
-    .about-content {
-      display: flex;
-      gap: 4rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .about-text { flex: 1; min-width: 300px; }
-    .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: var(--chocolate);
-      margin-bottom: 1.5rem;
-    }
-    .about-text p { margin-bottom: 1rem; font-size: 1.05rem; }
-    .about-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--rose-dark);
-      display: block;
-    }
-    .stat-label { font-size: 0.85rem; color: var(--text-light); }
-    .about-img {
-      flex: 0 0 380px;
-      height: 420px;
-      background: linear-gradient(135deg, #f8dfd3, #eecbb9);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .about-img svg { width: 160px; height: 160px; opacity: 0.8; }
-
-    .testimonials { background: #fff; }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .testimonial-card {
-      background: var(--vanilla);
-      padding: 2rem;
-      border-radius: 16px;
-      position: relative;
-    }
-    .testimonial-card::before {
-      content: '\201C';
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      color: var(--rose);
-      opacity: 0.3;
-      position: absolute;
-      top: 0.5rem;
-      left: 1.2rem;
-      line-height: 1;
-    }
-    .testimonial-card p { font-style: italic; margin-bottom: 1rem; padding-top: 1rem; }
-    .testimonial-card .author { font-weight: 600; color: var(--chocolate); font-size: 0.95rem; }
-    .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
-
-    .contact { background: var(--cream); }
-    .contact-grid {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .contact-info { flex: 1; min-width: 280px; }
-    .contact-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: var(--chocolate);
-      margin-bottom: 1rem;
-    }
-    .contact-info p { margin-bottom: 2rem; font-size: 1.05rem; }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    .contact-icon {
-      width: 44px; height: 44px;
-      min-width: 44px;
-      background: rgba(212, 132, 140, 0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: var(--rose-dark);
-      font-weight: 700;
-    }
-    .contact-form {
-      flex: 1;
-      min-width: 300px;
-      background: #fff;
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(92, 58, 46, 0.06);
-    }
-    .contact-form h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      color: var(--chocolate);
-    }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      font-size: 0.9rem;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1.5px solid #e8ddd5;
-      border-radius: 12px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color 0.2s;
-      background: #fdf9f6;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--rose);
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-
-    footer {
-      background: var(--chocolate);
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-    footer strong { color: #fff; }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 60px;
-      height: 60px;
-      background: #25d366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
-      cursor: pointer;
-      transition: transform 0.2s;
-      z-index: 200;
-      text-decoration: none;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); }
-    .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.6rem; }
-      .about-img { flex: 0 0 100%; height: 280px; }
-      .nav-links { display: none; }
-      .product-grid { grid-template-columns: 1fr; }
-    }
+    body { font-family: 'Inter',sans-serif; color: var(--text); background: var(--cream); line-height: 1.7; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; background: rgba(253,246,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212,132,140,0.2); padding: 0 2rem; transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(92,58,46,0.08); }
+    .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:72px; }
+    .logo { font-family: 'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--rose-dark); letter-spacing:-0.5px; }
+    .logo span { color:var(--chocolate); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text); font-weight:500; font-size:0.95rem; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--rose); }
+    .btn-order { background:var(--rose); color:#fff; border:none; padding:0.6rem 1.6rem; border-radius:50px; font-weight:600; font-size:0.9rem; cursor:pointer; transition:background 0.2s,transform 0.15s; font-family:'Inter',sans-serif; }
+    .btn-order:hover { background:var(--rose-dark); transform:translateY(-1px); }
+    .hero { margin-top:72px; display:flex; align-items:center; justify-content:center; min-height:92vh; background: linear-gradient(135deg,#fdf6f0 0%,#f8e8e0 40%,#fbe5d6 100%); text-align:center; padding:4rem 2rem; }
+    .hero-content { max-width:700px; }
+    .hero-badge { display:inline-block; background:rgba(212,132,140,0.15); color:var(--rose-dark); padding:0.4rem 1.2rem; border-radius:50px; font-size:0.85rem; font-weight:500; margin-bottom:1.5rem; letter-spacing:0.5px; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:4rem; font-weight:700; color:var(--chocolate); line-height:1.15; margin-bottom:1rem; }
+    .hero h1 em { color:var(--rose-dark); font-style:normal; }
+    .hero p { font-size:1.2rem; color:var(--text-light); margin-bottom:2.5rem; max-width:500px; margin-left:auto; margin-right:auto; }
+    .hero-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--rose); color:#fff; border:none; padding:0.9rem 2.4rem; border-radius:50px; font-weight:600; font-size:1rem; cursor:pointer; transition:all 0.2s; font-family:'Inter',sans-serif; text-decoration:none; display:inline-block; }
+    .btn-primary:hover { background:var(--rose-dark); transform:translateY(-2px); box-shadow: 0 8px 24px rgba(212,132,140,0.35); }
+    .btn-outline { background:transparent; color:var(--chocolate); border:2px solid var(--chocolate); padding:0.85rem 2.4rem; border-radius:50px; font-weight:600; font-size:1rem; cursor:pointer; transition:all 0.2s; font-family:'Inter',sans-serif; text-decoration:none; display:inline-block; }
+    .btn-outline:hover { background:var(--chocolate); color:#fff; }
+    section { padding:6rem 2rem; }
+    .section-header { text-align:center; margin-bottom:4rem; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:2.8rem; color:var(--chocolate); margin-bottom:0.75rem; }
+    .section-header p { color:var(--text-light); font-size:1.1rem; max-width:500px; margin:0 auto; }
+    .section-inner { max-width:1200px; margin:0 auto; }
+    .products { background:#fff; }
+    .product-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+    .product-card { background:var(--vanilla); border-radius:20px; overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; }
+    .product-card:hover { transform:translateY(-6px); box-shadow: 0 20px 40px rgba(92,58,46,0.1); }
+    .product-img { height:260px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .product-img svg { width:120px; height:120px; opacity:0.9; }
+    .product-img.chocolate { background: linear-gradient(135deg,#3d1f0e,#6b3a22); }
+    .product-img.red-velvet { background: linear-gradient(135deg,#8b1a2b,#c0392b); }
+    .product-img.cenoura { background: linear-gradient(135deg,#e8943a,#d4842c); }
+    .product-img.brigadeiro { background: linear-gradient(135deg,#5c2e1a,#3d1a0e); }
+    .product-img.morango { background: linear-gradient(135deg,#f5d6d6,#e8b4b8); }
+    .product-img.limao { background: linear-gradient(135deg,#f7f3c6,#e8d48b); }
+    .product-body { padding:1.5rem; }
+    .product-body h3 { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:0.3rem; color:var(--chocolate); }
+    .product-body .desc { color:var(--text-light); font-size:0.9rem; margin-bottom:1rem; }
+    .product-body .price { font-weight:700; font-size:1.4rem; color:var(--rose-dark); }
+    .product-body .price small { font-weight:400; font-size:0.8rem; color:var(--text-light); }
+    .about { background:var(--cream); }
+    .about-content { display:flex; gap:4rem; align-items:center; flex-wrap:wrap; }
+    .about-text { flex:1; min-width:300px; }
+    .about-text h2 { font-family:'Playfair Display',serif; font-size:2.4rem; color:var(--chocolate); margin-bottom:1.5rem; }
+    .about-text p { margin-bottom:1rem; font-size:1.05rem; }
+    .about-stats { display:flex; gap:2.5rem; margin-top:2rem; flex-wrap:wrap; }
+    .stat { text-align:center; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:var(--rose-dark); display:block; }
+    .stat-label { font-size:0.85rem; color:var(--text-light); }
+    .about-img { flex:0 0 380px; height:420px; background: linear-gradient(135deg,#f8dfd3,#eecbb9); border-radius:24px; display:flex; align-items:center; justify-content:center; }
+    .about-img svg { width:160px; height:160px; opacity:0.8; }
+    .testimonials { background:#fff; }
+    .testimonial-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
+    .testimonial-card { background:var(--vanilla); padding:2rem; border-radius:16px; position:relative; }
+    .testimonial-card::before { content:'\201C'; font-family:'Playfair Display',serif; font-size:4rem; color:var(--rose); opacity:0.3; position:absolute; top:0.5rem; left:1.2rem; line-height:1; }
+    .testimonial-card p { font-style:italic; margin-bottom:1rem; padding-top:1rem; }
+    .testimonial-card .author { font-weight:600; color:var(--chocolate); font-size:0.95rem; }
+    .stars { color:var(--gold); font-size:1rem; letter-spacing:2px; margin-bottom:0.5rem; }
+    .contact { background:var(--cream); }
+    .contact-grid { display:flex; gap:3rem; flex-wrap:wrap; }
+    .contact-info { flex:1; min-width:280px; }
+    .contact-info h2 { font-family:'Playfair Display',serif; font-size:2.4rem; color:var(--chocolate); margin-bottom:1rem; }
+    .contact-info p { margin-bottom:2rem; font-size:1.05rem; }
+    .contact-item { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; font-size:1rem; }
+    .contact-icon { width:44px; height:44px; min-width:44px; background:rgba(212,132,140,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--rose-dark); font-weight:700; }
+    .contact-form { flex:1; min-width:300px; background:#fff; padding:2.5rem; border-radius:20px; box-shadow: 0 8px 32px rgba(92,58,46,0.06); }
+    .contact-form h3 { font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:1.5rem; color:var(--chocolate); }
+    .form-group { margin-bottom:1.2rem; }
+    .form-group label { display:block; font-weight:500; margin-bottom:0.4rem; font-size:0.9rem; }
+    .form-group input, .form-group textarea { width:100%; padding:0.8rem 1rem; border:1.5px solid #e8ddd5; border-radius:12px; font-family:'Inter',sans-serif; font-size:0.95rem; transition:border-color 0.2s; background:#fdf9f6; }
+    .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--rose); }
+    .form-group textarea { resize:vertical; min-height:100px; }
+    footer { background:var(--chocolate); color:rgba(255,255,255,0.7); text-align:center; padding:2rem; font-size:0.9rem; }
+    footer strong { color:#fff; }
+    .whatsapp-float { position:fixed; bottom:2rem; right:2rem; width:60px; height:60px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 20px rgba(37,211,102,0.35); cursor:pointer; transition:transform 0.2s; z-index:200; text-decoration:none; }
+    .whatsapp-float:hover { transform:scale(1.1); }
+    .whatsapp-float svg { width:30px; height:30px; fill:#fff; }
+    @media (max-width:768px) { .hero h1 { font-size:2.6rem; } .about-img { flex:0 0 100%; height:280px; } .nav-links { display:none; } .product-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
-
-  <nav id="navbar">
-    <div class="nav-inner">
-      <div class="logo">Bolos <span>Mara</span></div>
-      <ul class="nav-links">
-        <li><a href="#home">In&iacute;cio</a></li>
-        <li><a href="#products">Bolos</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-      <button class="btn-order" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Encomendar</button>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-badge">Desde 2018</div>
-      <h1>O bolo que faz <em>seu dia</em> mais doce</h1>
-      <p>Bolos artesanais feitos com ingredientes selecionados, muito amor e aquele gostinho de casa de v&oacute;. Cada fatia conta uma hist&oacute;ria.</p>
-      <div class="hero-buttons">
-        <a href="#products" class="btn-primary">Ver Card&aacute;pio</a>
-        <a href="#contact" class="btn-outline">Fazer Pedido</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUTOS -->
-  <section class="products" id="products">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2>Nossos Bolos</h2>
-        <p>Receitas exclusivas que conquistam pelo sabor e pela apresenta&ccedil;&atilde;o</p>
-      </div>
-      <div class="product-grid">
-
-        <div class="product-card">
-          <div class="product-img chocolate">
-            <svg viewBox="0 0 100 100" fill="none">
-              <rect x="25" y="55" width="50" height="40" rx="4" fill="#f5deb3" opacity="0.9"/>
-              <rect x="20" y="25" width="60" height="35" rx="4" fill="#5c2e1a"/>
-              <rect x="20" y="25" width="60" height="8" rx="2" fill="#3d1a0e"/>
-              <circle cx="40" cy="42" r="4" fill="#8b4513"/>
-              <circle cx="55" cy="48" r="3" fill="#8b4513"/>
-              <circle cx="65" cy="40" r="4" fill="#8b4513"/>
-              <circle cx="45" cy="15" r="4" fill="#ff6b8a"/>
-              <rect x="43" y="5" width="4" height="10" rx="2" fill="#ff6b8a"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <h3>Chocolate Belga</h3>
-            <p class="desc">Massa de cacau 70% com recheio trufado e ganache. O cl&aacute;ssico que nunca falha.</p>
-            <div class="price">R$ 89,90 <small>/ 1,5kg</small></div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img red-velvet">
-            <svg viewBox="0 0 100 100" fill="none">
-              <rect x="25" y="55" width="50" height="40" rx="4" fill="#faf0f0" opacity="0.9"/>
-              <rect x="20" y="25" width="60" height="35" rx="4" fill="#c0392b"/>
-              <rect x="20" y="52" width="60" height="10" fill="#fefefe"/>
-              <circle cx="40" cy="40" r="3" fill="#e74c3c" opacity="0.5"/>
-              <circle cx="55" cy="38" r="3" fill="#e74c3c" opacity="0.5"/>
-              <circle cx="48" cy="46" r="3" fill="#e74c3c" opacity="0.5"/>
-              <circle cx="45" cy="15" r="4" fill="#ff4444"/>
-              <rect x="43" y="5" width="4" height="10" rx="2" fill="#ff4444"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <h3>Red Velvet</h3>
-            <p class="desc">Massa aveludada vermelha com cream cheese. Elegante e irresist&iacute;vel.</p>
-            <div class="price">R$ 99,90 <small>/ 1,5kg</small></div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img cenoura">
-            <svg viewBox="0 0 100 100" fill="none">
-              <rect x="25" y="55" width="50" height="40" rx="4" fill="#f5deb3" opacity="0.9"/>
-              <rect x="20" y="25" width="60" height="35" rx="4" fill="#d4842c"/>
-              <rect x="20" y="25" width="60" height="8" rx="2" fill="#5c2e1a"/>
-              <circle cx="35" cy="40" r="3" fill="#e8943a" opacity="0.6"/>
-              <circle cx="55" cy="42" r="3" fill="#e8943a" opacity="0.6"/>
-              <circle cx="45" cy="35" r="3" fill="#e8943a" opacity="0.6"/>
-              <circle cx="45" cy="15" r="4" fill="#ff8c00"/>
-              <rect x="43" y="5" width="4" height="10" rx="2" fill="#ff8c00"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <h3>Cenoura com Brigadeiro</h3>
-            <p class="desc">Massa fofinha de cenoura coberta com brigadeiro cremoso. O favorito da casa.</p>
-            <div class="price">R$ 79,90 <small>/ 1,5kg</small></div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img brigadeiro">
-            <svg viewBox="0 0 100 100" fill="none">
-              <rect x="25" y="55" width="50" height="40" rx="4" fill="#f5f0e0" opacity="0.9"/>
-              <rect x="20" y="25" width="60" height="35" rx="4" fill="#8b6914"/>
-              <rect x="20" y="50" width="60" height="12" fill="#5c2e1a"/>
-              <circle cx="30" cy="42" r="2.5" fill="#ffd700" opacity="0.5"/>
-              <circle cx="50" cy="38" r="2.5" fill="#ffd700" opacity="0.5"/>
-              <circle cx="65" cy="44" r="2.5" fill="#ffd700" opacity="0.5"/>
-              <circle cx="45" cy="15" r="4" fill="#daa520"/>
-              <rect x="43" y="5" width="4" height="10" rx="2" fill="#daa520"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <h3>Ninho com Nutella</h3>
-            <p class="desc">Massa branca, recheio de leite Ninho e cobertura de Nutella. Pura indulg&ecirc;ncia.</p>
-            <div class="price">R$ 109,90 <small>/ 1,5kg</small></div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img morango">
-            <svg viewBox="0 0 100 100" fill="none">
-              <rect x="25" y="55" width="50" height="40" rx="4" fill="#faf0f0" opacity="0.9"/>
-              <rect x="20" y="25" width="60" height="35" rx="4" fill="#f8e8e8"/>
-              <rect x="20" y="50" width="60" height="12" fill="#fefefe"/>
-              <circle cx="40" cy="38" r="5" fill="#e74c3c"/>
-              <circle cx="58" cy="35" r="5" fill="#e74c3c"/>
-              <circle cx="48" cy="44" r="5" fill="#e74c3c"/>
-              <circle cx="35" cy="33" r="1" fill="#ffd700"/>
-              <circle cx="53" cy="30" r="1" fill="#ffd700"/>
-              <circle cx="45" cy="40" r="1" fill="#ffd700"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <h3>Morango com Chantilly</h3>
-            <p class="desc">P&atilde;o de l&oacute; leve, morangos frescos e chantilly artesanal. Frescor em cada mordida.</p>
-            <div class="price">R$ 94,90 <small>/ 1,5kg</small></div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img limao">
-            <svg viewBox="0 0 100 100" fill="none">
-              <rect x="25" y="55" width="50" height="40" rx="4" fill="#faf8f0" opacity="0.9"/>
-              <rect x="20" y="25" width="60" height="35" rx="4" fill="#f5f0d0"/>
-              <rect x="20" y="50" width="60" height="10" fill="#fefefe"/>
-              <circle cx="42" cy="38" r="6" fill="#f0d860"/>
-              <circle cx="55" cy="35" r="4" fill="#e8d48b"/>
-              <circle cx="45" cy="15" r="4" fill="#f0d860"/>
-              <rect x="43" y="5" width="4" height="10" rx="2" fill="#f0d860"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <h3>Lim&atilde;o Siciliano</h3>
-            <p class="desc">Massa de lim&atilde;o siciliano com raspas e cobertura glac&ecirc;. C&iacute;trico e surpreendente.</p>
-            <div class="price">R$ 84,90 <small>/ 1,5kg</small></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section class="about" id="about">
-    <div class="section-inner">
-      <div class="about-content">
-        <div class="about-text">
-          <h2>A hist&oacute;ria da Mara</h2>
-          <p>Tudo come&ccedil;ou em 2018, na cozinha de casa. Mara fazia bolos para os anivers&aacute;rios da fam&iacute;lia &mdash; e todo mundo pedia a receita. O que era hobby virou paix&atilde;o, e a paix&atilde;o virou profiss&atilde;o.</p>
-          <p>Hoje, cada bolo que sai da nossa cozinha &eacute; feito com os mesmos princ&iacute;pios do primeiro: <strong>ingredientes de verdade, sem pressa, com carinho.</strong></p>
-          <p>J&aacute; entregamos mais de 3.000 bolos em S&atilde;o Paulo, sempre com o mesmo sorriso de quem faz o que ama.</p>
-          <div class="about-stats">
-            <div class="stat"><span class="stat-num">3.000+</span><span class="stat-label">Bolos entregues</span></div>
-            <div class="stat"><span class="stat-num">7</span><span class="stat-label">Anos de hist&oacute;ria</span></div>
-            <div class="stat"><span class="stat-num">&#9733; 4.9</span><span class="stat-label">Avalia&ccedil;&atilde;o m&eacute;dia</span></div>
-          </div>
-        </div>
-        <div class="about-img">
-          <svg viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="35" r="18" fill="#e8c4a8"/>
-            <path d="M32 75 Q50 55 68 75" stroke="#e8c4a8" stroke-width="14" fill="none" stroke-linecap="round"/>
-            <circle cx="50" cy="82" r="14" fill="#d4848c" opacity="0.6"/>
-            <rect x="30" y="60" width="40" height="5" rx="2" fill="#e8c4a8"/>
-            <circle cx="45" cy="60" r="6" fill="#ff6b8a" opacity="0.5"/>
-            <circle cx="55" cy="58" r="6" fill="#ff6b8a" opacity="0.5"/>
-            <circle cx="50" cy="64" r="6" fill="#ff6b8a" opacity="0.5"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTEMUNHOS -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2>O que dizem nossos clientes</h2>
-        <p>Quem prova, recomenda</p>
-      </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>Encomendei o Red Velvet para o anivers&aacute;rio da minha filha e foi um sucesso! Al&eacute;m de lindo, estava delicioso. Superou todas as expectativas.</p>
-          <div class="author">Ana Carolina S.</div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>O bolo de cenoura com brigadeiro &eacute; simplesmente o melhor que j&aacute; comi. Massa fofinha, cobertura no ponto certo. Virei cliente fiel.</p>
-          <div class="author">Rafael M.</div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>Entrega no prazo, embalagem impec&aacute;vel e o sabor... nem se fala! O de Ninho com Nutella &eacute; coisa de outro mundo. Recomendo de olhos fechados.</p>
-          <div class="author">Juliana P.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section class="contact" id="contact">
-    <div class="section-inner">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Fa&ccedil;a seu pedido</h2>
-          <p>Respondemos em at&eacute; 2 horas. Encomendas com pelo menos 48h de anteced&ecirc;ncia.</p>
-          <div class="contact-item">
-            <div class="contact-icon">&#9742;</div>
-            <strong>(11) 98765-4321</strong>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">@</div>
-            contato@bolosmara.com.br
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">&#9906;</div>
-            Vila Mariana &mdash; S&atilde;o Paulo, SP
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">&#9716;</div>
-            Seg&ndash;S&aacute;b, 9h&ndash;18h
-          </div>
-        </div>
-        <form class="contact-form" onsubmit="alert('Mensagem enviada! Entraremos em contato em breve.'); return false;">
-          <h3>Envie uma mensagem</h3>
-          <div class="form-group">
-            <label for="name">Nome</label>
-            <input type="text" id="name" placeholder="Seu nome" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">WhatsApp</label>
-            <input type="tel" id="phone" placeholder="(11) 9xxxx-xxxx" required>
-          </div>
-          <div class="form-group">
-            <label for="msg">Qual bolo voc&ecirc; quer?</label>
-            <textarea id="msg" placeholder="Conte sobre o bolo dos sonhos... data, sabor, tamanho..." required></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width:100%">Enviar Pedido</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <strong>Bolos Mara</strong> &mdash; Feitos com amor desde 2018<br>
-    <small>Todos os direitos reservados &copy; 2026</small>
-  </footer>
-
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/5511987654321" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-
+  <nav id="navbar"><div class="nav-inner"><div class="logo">Bolos <span>Mara</span></div><ul class="nav-links"><li><a href="#home">Inicio</a></li><li><a href="#products">Bolos</a></li><li><a href="#about">Sobre</a></li><li><a href="#contact">Contato</a></li></ul><button class="btn-order" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Encomendar</button></div></nav>
+  <section class="hero" id="home"><div class="hero-content"><div class="hero-badge">Desde 2018</div><h1>O bolo que faz <em>seu dia</em> mais doce</h1><p>Bolos artesanais feitos com ingredientes selecionados, muito amor e aquele gostinho de casa de vo. Cada fatia conta uma historia.</p><div class="hero-buttons"><a href="#products" class="btn-primary">Ver Cardapio</a><a href="#contact" class="btn-outline">Fazer Pedido</a></div></div></section>
+  <section class="products" id="products"><div class="section-inner"><div class="section-header"><h2>Nossos Bolos</h2><p>Receitas exclusivas que conquistam pelo sabor e pela apresentacao</p></div><div class="product-grid">
+    <div class="product-card"><div class="product-img chocolate"><svg viewBox="0 0 100 100" fill="none"><rect x="25" y="55" width="50" height="40" rx="4" fill="#f5deb3" opacity="0.9"/><rect x="20" y="25" width="60" height="35" rx="4" fill="#5c2e1a"/><rect x="20" y="25" width="60" height="8" rx="2" fill="#3d1a0e"/><circle cx="40" cy="42" r="4" fill="#8b4513"/><circle cx="55" cy="48" r="3" fill="#8b4513"/><circle cx="65" cy="40" r="4" fill="#8b4513"/><circle cx="45" cy="15" r="4" fill="#ff6b8a"/><rect x="43" y="5" width="4" height="10" rx="2" fill="#ff6b8a"/></svg></div><div class="product-body"><h3>Chocolate Belga</h3><p class="desc">Massa de cacau 70% com recheio trufado e ganache. O classico que nunca falha.</p><div class="price">R$ 89,90 <small>/ 1,5kg</small></div></div></div>
+    <div class="product-card"><div class="product-img red-velvet"><svg viewBox="0 0 100 100" fill="none"><rect x="25" y="55" width="50" height="40" rx="4" fill="#faf0f0" opacity="0.9"/><rect x="20" y="25" width="60" height="35" rx="4" fill="#c0392b"/><rect x="20" y="52" width="60" height="10" fill="#fefefe"/><circle cx="40" cy="40" r="3" fill="#e74c3c" opacity="0.5"/><circle cx="55" cy="38" r="3" fill="#e74c3c" opacity="0.5"/><circle cx="48" cy="46" r="3" fill="#e74c3c" opacity="0.5"/><circle cx="45" cy="15" r="4" fill="#ff4444"/><rect x="43" y="5" width="4" height="10" rx="2" fill="#ff4444"/></svg></div><div class="product-body"><h3>Red Velvet</h3><p class="desc">Massa aveludada vermelha com cream cheese. Elegante e irresistivel.</p><div class="price">R$ 99,90 <small>/ 1,5kg</small></div></div></div>
+    <div class="product-card"><div class="product-img cenoura"><svg viewBox="0 0 100 100" fill="none"><rect x="25" y="55" width="50" height="40" rx="4" fill="#f5deb3" opacity="0.9"/><rect x="20" y="25" width="60" height="35" rx="4" fill="#d4842c"/><rect x="20" y="25" width="60" height="8" rx="2" fill="#5c2e1a"/><circle cx="35" cy="40" r="3" fill="#e8943a" opacity="0.6"/><circle cx="55" cy="42" r="3" fill="#e8943a" opacity="0.6"/><circle cx="45" cy="35" r="3" fill="#e8943a" opacity="0.6"/><circle cx="45" cy="15" r="4" fill="#ff8c00"/><rect x="43" y="5" width="4" height="10" rx="2" fill="#ff8c00"/></svg></div><div class="product-body"><h3>Cenoura com Brigadeiro</h3><p class="desc">Massa fofinha de cenoura coberta com brigadeiro cremoso. O favorito da casa.</p><div class="price">R$ 79,90 <small>/ 1,5kg</small></div></div></div>
+    <div class="product-card"><div class="product-img brigadeiro"><svg viewBox="0 0 100 100" fill="none"><rect x="25" y="55" width="50" height="40" rx="4" fill="#f5f0e0" opacity="0.9"/><rect x="20" y="25" width="60" height="35" rx="4" fill="#8b6914"/><rect x="20" y="50" width="60" height="12" fill="#5c2e1a"/><circle cx="30" cy="42" r="2.5" fill="#ffd700" opacity="0.5"/><circle cx="50" cy="38" r="2.5" fill="#ffd700" opacity="0.5"/><circle cx="65" cy="44" r="2.5" fill="#ffd700" opacity="0.5"/><circle cx="45" cy="15" r="4" fill="#daa520"/><rect x="43" y="5" width="4" height="10" rx="2" fill="#daa520"/></svg></div><div class="product-body"><h3>Ninho com Nutella</h3><p class="desc">Massa branca, recheio de leite Ninho e cobertura de Nutella. Pura indulgencia.</p><div class="price">R$ 109,90 <small>/ 1,5kg</small></div></div></div>
+    <div class="product-card"><div class="product-img morango"><svg viewBox="0 0 100 100" fill="none"><rect x="25" y="55" width="50" height="40" rx="4" fill="#faf0f0" opacity="0.9"/><rect x="20" y="25" width="60" height="35" rx="4" fill="#f8e8e8"/><rect x="20" y="50" width="60" height="12" fill="#fefefe"/><circle cx="40" cy="38" r="5" fill="#e74c3c"/><circle cx="58" cy="35" r="5" fill="#e74c3c"/><circle cx="48" cy="44" r="5" fill="#e74c3c"/><circle cx="35" cy="33" r="1" fill="#ffd700"/><circle cx="53" cy="30" r="1" fill="#ffd700"/><circle cx="45" cy="40" r="1" fill="#ffd700"/></svg></div><div class="product-body"><h3>Morango com Chantilly</h3><p class="desc">Pao de lo leve, morangos frescos e chantilly artesanal. Frescor em cada mordida.</p><div class="price">R$ 94,90 <small>/ 1,5kg</small></div></div></div>
+    <div class="product-card"><div class="product-img limao"><svg viewBox="0 0 100 100" fill="none"><rect x="25" y="55" width="50" height="40" rx="4" fill="#faf8f0" opacity="0.9"/><rect x="20" y="25" width="60" height="35" rx="4" fill="#f5f0d0"/><rect x="20" y="50" width="60" height="10" fill="#fefefe"/><circle cx="42" cy="38" r="6" fill="#f0d860"/><circle cx="55" cy="35" r="4" fill="#e8d48b"/><circle cx="45" cy="15" r="4" fill="#f0d860"/><rect x="43" y="5" width="4" height="10" rx="2" fill="#f0d860"/></svg></div><div class="product-body"><h3>Limao Siciliano</h3><p class="desc">Massa de limao siciliano com raspas e cobertura glace. Citrico e surpreendente.</p><div class="price">R$ 84,90 <small>/ 1,5kg</small></div></div></div>
+  </div></div></section>
+  <section class="about" id="about"><div class="section-inner"><div class="about-content"><div class="about-text"><h2>A historia da Mara</h2><p>Tudo comecou em 2018, na cozinha de casa. Mara fazia bolos para os aniversarios da familia -- e todo mundo pedia a receita. O que era hobby virou paixao, e a paixao virou profissao.</p><p>Hoje, cada bolo que sai da nossa cozinha e feito com os mesmos principios do primeiro: <strong>ingredientes de verdade, sem pressa, com carinho.</strong></p><p>Ja entregamos mais de 3.000 bolos em Sao Paulo, sempre com o mesmo sorriso de quem faz o que ama.</p><div class="about-stats"><div class="stat"><span class="stat-num">3.000+</span><span class="stat-label">Bolos entregues</span></div><div class="stat"><span class="stat-num">7</span><span class="stat-label">Anos de historia</span></div><div class="stat"><span class="stat-num">&#9733; 4.9</span><span class="stat-label">Avaliacao media</span></div></div></div><div class="about-img"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="35" r="18" fill="#e8c4a8"/><path d="M32 75 Q50 55 68 75" stroke="#e8c4a8" stroke-width="14" fill="none" stroke-linecap="round"/><circle cx="50" cy="82" r="14" fill="#d4848c" opacity="0.6"/><rect x="30" y="60" width="40" height="5" rx="2" fill="#e8c4a8"/><circle cx="45" cy="60" r="6" fill="#ff6b8a" opacity="0.5"/><circle cx="55" cy="58" r="6" fill="#ff6b8a" opacity="0.5"/><circle cx="50" cy="64" r="6" fill="#ff6b8a" opacity="0.5"/></svg></div></div></div></section>
+  <section class="testimonials" id="testimonials"><div class="section-inner"><div class="section-header"><h2>O que dizem nossos clientes</h2><p>Quem prova, recomenda</p></div><div class="testimonial-grid"><div class="testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Encomendei o Red Velvet para o aniversario da minha filha e foi um sucesso! Alem de lindo, estava delicioso. Superou todas as expectativas.</p><div class="author">Ana Carolina S.</div></div><div class="testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>O bolo de cenoura com brigadeiro e simplesmente o melhor que ja comi. Massa fofinha, cobertura no ponto certo. Virei cliente fiel.</p><div class="author">Rafael M.</div></div><div class="testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Entrega no prazo, embalagem impecavel e o sabor... nem se fala! O de Ninho com Nutella e coisa de outro mundo. Recomendo de olhos fechados.</p><div class="author">Juliana P.</div></div></div></div></section>
+  <section class="contact" id="contact"><div class="section-inner"><div class="contact-grid"><div class="contact-info"><h2>Faca seu pedido</h2><p>Respondemos em ate 2 horas. Encomendas com pelo menos 48h de antecedencia.</p><div class="contact-item"><div class="contact-icon">&#9742;</div><strong>(11) 98765-4321</strong></div><div class="contact-item"><div class="contact-icon">@</div>contato@bolosmara.com.br</div><div class="contact-item"><div class="contact-icon">&#9906;</div>Vila Mariana -- Sao Paulo, SP</div><div class="contact-item"><div class="contact-icon">&#9716;</div>Seg-Sab, 9h-18h</div></div><form class="contact-form" onsubmit="alert('Mensagem enviada! Entraremos em contato em breve.'); return false;"><h3>Envie uma mensagem</h3><div class="form-group"><label for="name">Nome</label><input type="text" id="name" placeholder="Seu nome" required></div><div class="form-group"><label for="phone">WhatsApp</label><input type="tel" id="phone" placeholder="(11) 9xxxx-xxxx" required></div><div class="form-group"><label for="msg">Qual bolo voce quer?</label><textarea id="msg" placeholder="Conte sobre o bolo dos sonhos... data, sabor, tamanho..." required></textarea></div><button type="submit" class="btn-primary" style="width:100%">Enviar Pedido</button></form></div></div></section>
+  <footer><strong>Bolos Mara</strong> -- Feitos com amor desde 2018<br><small>Todos os direitos reservados &copy; 2026</small></footer>
+  <a href="https://wa.me/5511987654321" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.product-card, .testimonial-card, .about-content, .contact-form').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'all 0.6s ease-out';
-      observer.observe(el);
-    });
+    window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)});
+    var o=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:0.1});
+    document.querySelectorAll('.product-card,.testimonial-card,.about-content,.contact-form').forEach(function(e){e.style.opacity='0';e.style.transform='translateY(30px)';e.style.transition='all 0.6s ease-out';o.observe(e)});
   </script>
-
 </body>
 </html>
